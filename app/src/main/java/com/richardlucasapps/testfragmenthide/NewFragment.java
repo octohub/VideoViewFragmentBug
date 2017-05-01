@@ -37,6 +37,6 @@ public class NewFragment extends Fragment {
                 + R.raw.video0);
         videoView.setVideoURI(video);
         videoView.start();
-        //videoView.setZOrderMediaOverlay(true);
+        //videoView.setZOrderMediaOverlay(true); // fixes the issue
     }
 }

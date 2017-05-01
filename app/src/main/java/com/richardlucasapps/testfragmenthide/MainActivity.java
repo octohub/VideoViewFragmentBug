@@ -21,20 +21,20 @@ public class MainActivity extends AppCompatActivity {
 
         getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.content_layout, MainActivityFragment.newInstance(), "MAIN_FRAGMENT")
+                .add(R.id.content_layout, MainFragment.newInstance(), "MAIN_FRAGMENT")
                 .commit();
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                MainActivityFragment fragment = (MainActivityFragment) getSupportFragmentManager().findFragmentByTag("MAIN_FRAGMENT");
+                MainFragment fragment = (MainFragment) getSupportFragmentManager().findFragmentByTag("MAIN_FRAGMENT");
                 fragment.stopVideo();
                 fragment.getView().setVisibility(View.GONE); // Setting the fragment root view to GONE does not fix the issue.
 
                 getSupportFragmentManager()
                         .beginTransaction()
-                        .hide(fragment) // Hiding the fragment does not fix the issue.
+                        .hide(fragment) // Hiding the fragment does not fix the issue. Replacing does fix the issue as you might expect.
                         .add(R.id.content_layout, NewFragment.newInstance())
                         .commit();
             }
