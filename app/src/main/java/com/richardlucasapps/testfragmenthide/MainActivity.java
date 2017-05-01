@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 MainFragment fragment = (MainFragment) getSupportFragmentManager().findFragmentByTag("MAIN_FRAGMENT");
-                fragment.stopVideo();
+                //fragment.stopVideo();
                 fragment.getView().setVisibility(View.GONE); // Setting the fragment root view to GONE does not fix the issue.
 
                 getSupportFragmentManager()
